@@ -1,8 +1,6 @@
-import math
-
 def main():
     A,B = [x for x in input().split()]
-    print(math.floor(int(A)*float(B)))
+    print(int(A)*round(float(B)*100)//100)
 
 if __name__ == '__main__':
     main()
