@@ -1,5 +1,5 @@
 from collections import defaultdict
-import copy
+import math
 
 def main():
     N,M = [int(x) for x in input().split()]
@@ -18,17 +18,9 @@ def main():
             return
 
     cnt = 0
-    kit = []
-    kanban = ''
-    kanban_dict = defaultdict(int)
-    while ''.join(name) != kanban and len(name) >= len(kanban):
-        kit += masterkit
-        cnt += 1
-        for n in name:
-            if n in kit and name_dict[n] > kanban_dict[n]:
-                c = kit.pop(kit.index(n))
-                kanban += c
-                kanban_dict[c] += 1
+    for k,v in name_dict.items():
+        kit_cnt = masterkit_dict[k]
+        cnt = max(cnt, math.ceil(v / kit_cnt))
     print(cnt)
 
 if __name__ == '__main__':
