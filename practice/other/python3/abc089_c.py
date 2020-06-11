@@ -1,5 +1,3 @@
-from collections import defaultdict
-
 def main():
     N = int(input())
     MARCH = ['M','A','R','C','H']
