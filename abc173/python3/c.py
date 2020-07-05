@@ -19,20 +19,20 @@ def main():
     cnt = 0
     for ibit in range(0,1<<H):
         for jbit in range(0,1<<W):
-            icost = 0
-            jcost = 0
-            ijcost = 0
+            ib = 0
+            jb = 0
+            ijb = 0
             for i in range(H):
                 if (1<<i) & ibit:
-                    icost += BH[i]
+                    ib += BH[i]
             for j in range(W):
                 if (1<<j) & jbit:
-                    jcost += BW[j]
+                    jb += BW[j]
             for i in range(H):
                 for j in range(W):
                     if (1<<i) & ibit and (1<<j) & jbit:
-                        ijcost += BHW[i][j]
-            b = B - icost - jcost + ijcost
+                        ijb += BHW[i][j]
+            b = B - ib - jb + ijb
             if K == b:
                 cnt += 1
     print(cnt)
